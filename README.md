@@ -54,6 +54,12 @@ This configuration supports two modes:
 
 ## BOM
 
+<<<<<<< HEAD
+=======
+<details>
+  <summary>Detail ...</summary>
+
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 See the full [Bill of Materials](/docs/bom/readme.md) for electronics, PCBs, fabrication files (ready-to-upload gerbers for PCBWay/JLCPCB), and 3D print files.
 
 ### Additional Components for Dongle Mode
@@ -78,7 +84,12 @@ See the full [Bill of Materials](/docs/bom/readme.md) for electronics, PCBs, fab
 - Uses [zmk-dongle-screen](https://github.com/janpfischer/zmk-dongle-screen) module (YADS) *(currently disabled - Zephyr 4.1 compatibility pending)*
 - Alternative firmware for Prospector hardware with different features
 
+<<<<<<< HEAD
 ![Wireless Keyboard](/docs/picture/wireless-charybdis.png)
+=======
+</details>
+
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 
 ## Tester Pro Micro Shield
 
@@ -96,6 +107,12 @@ The tester runs in USB-only mode (no BLE) and includes two physical layouts for 
 
 ## Repository Structure
 
+<<<<<<< HEAD
+=======
+<details>
+  <summary>Detail ...</summary>
+
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 ```text
 zmk-config-charybdis/
 ├── boards/                          # Module-based shields (Zephyr 4.1+ recommended layout)
@@ -185,6 +202,12 @@ zmk-config-charybdis/
 - **`dongle_nice_64.overlay`**: Nice!Nano dongle with 128x64 OLED display
 - **`config/west.yml`**: Defines external dependencies (see West.yml section below)
 
+<<<<<<< HEAD
+=======
+</details>
+
+
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 ## Operating Modes
 
 ### Standalone Mode
@@ -354,11 +377,17 @@ self:
 
 ## Keymap
 
+<<<<<<< HEAD
 Can be updated at [/config/charybdis.keymap](/config/charybdis.keymap) and rendered with [render.sh](/docs/keymap/render.sh)
 
 Generated with [Keymap Drawer](https://github.com/caksoylar/keymap-drawer-web/)
 
 ![Keymap](/docs/keymap/keymap.svg)
+=======
+Generated with [Keymap Drawer](https://github.com/caksoylar/keymap-drawer-web/)
+
+![Keymap](/docs/export/charybdis.svg)
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 
 ## Trackball Sensitivity Configuration
 
@@ -566,7 +595,11 @@ Built firmware files are automatically copied to `manual_build/artifacts/output/
 
 2. Flash `charybdis_left-nice_nano-zmk.uf2` to the left keyboard
 3. Flash `dongle_charybdis_right-nice_nano-zmk.uf2` to the right keyboard
+<<<<<<< HEAD
 4. **Important**: Pair the left keyboard to the dongle first, then pair the right keyboard (paring occurs when reset firmware is flashed prior to main firmware). Just ensure to follow two previous steps in order (left first, then right) and the battery status will display correctly on the dongle.
+=======
+4. **Important**: Pair the left keyboard to the dongle first, then pair the right keyboard
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
 
 ### Tester Pro Micro (GPIO Testing)
 

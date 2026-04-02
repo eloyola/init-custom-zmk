@@ -92,6 +92,16 @@
 
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52>; // Left side keys
             hold-trigger-on-release;
+<<<<<<< HEAD
+=======
+        };
+
+        slash_bslash: slash_bslash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SLASH_BSLASH";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp BSLH>;
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
         };
     };
 
@@ -108,6 +118,105 @@
                 <&kp MACRO_PLACEHOLDER>,
                 <&macro_release>,
                 <&kp LCTRL &kp LALT &kp LGUI>;
+<<<<<<< HEAD
+=======
+        };
+
+        // Ctrl+Shift+Alt macro
+
+        CSA: CSA {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LSHIFT &kp LALT &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LCTRL &kp LSHIFT &kp LALT>;
+        };
+
+        // Ctrl+Alt macro
+
+        CA: CA {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LCTRL &kp LALT>;
+        };
+
+        // Hold Ctrl+Cmd+Left Click while key is pressed (for mouse drag window actions)
+
+        ctrl_cmd_hold: ctrl_cmd_hold {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <10>;
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LGUI &mkp LCLK>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mkp LCLK &kp LCTRL &kp LGUI>;
+        };
+
+        pound: pound {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N6 &kp KP_N3>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            wait-ms = <0>;
+            tap-ms = <10>;
+        };
+
+        euro: euro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            wait-ms = <0>;
+            tap-ms = <10>;
+            label = "EURO";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        timeout-ms = <20>;
+        require-prior-idle-ms = <250>;
+
+        // Studio Unlock Combo - all three right thumb keys
+
+        combo_studio_unlock {
+            timeout-ms = <50>;
+            key-positions = <53 54 55>;
+            bindings = <&studio_unlock>;
+        };
+
+        // Gaming layer toggle combo - keys 49, 55, 54
+
+        combo_gaming_toggle {
+            timeout-ms = <50>;
+            key-positions = <49 55 54>;
+            bindings = <&tog GAMING>;
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
         };
 
         // Ctrl+Shift+Alt macro
@@ -189,12 +298,21 @@
             label = "BASE";
             display-name = "Base";
             bindings = <
+<<<<<<< HEAD
 &kp GRAVE     &kp N1               &kp N2       &kp N3         &kp N4         &kp N5  &kp N6         &kp N7         &kp N8       &kp N9            &kp N0                   &kp MINUS
 &kp TAB       &kp Q                &kp W        &kp E          &kp R          &kp T           &kp Y  &kp U          &kp I        &kp O             &kp P                    &kp EQUAL
 &kp ESCAPE    &hml LEFT_CONTROL A  &hml LALT S  &hml LWIN D    &hml LSHIFT F  &kp G           &kp H  &hmr RSHIFT J  &hmr RWIN K  &hmr RIGHT_ALT L  &hmr RIGHT_CONTROL SEMI  &kp SQT
 &kp LSHIFT    &blt 1 Z             &kp X        &kp C          &kp V          &kp B           &kp N  &kp M          &kp COMMA    &kp DOT           &hmr RGUI FSLH           &kp RSHIFT
 &kp LEFT_WIN  &kp LEFT_CONTROL     &kp TAB      &kp BACKSPACE  &kp Q
 &kp DELETE    &kp Z                &kp RETURN
+=======
+&kp GRAVE   &kp N1               &kp N2       &kp N3        &kp N4            &kp N5           &kp N6            &kp N7        &kp N8       &kp N9            &kp N0                   &kp MINUS
+&kp TAB     &kp Q                &kp W        &kp E         &kp R             &kp T            &kp Y             &kp U         &kp I        &kp O             &kp P                    &kp EQUAL
+&kp ESC     &hml LEFT_CONTROL A  &hml LALT S  &hml LWIN D   &hml LSHIFT F     &kp G            &kp H             &hmr RSHFT J  &hmr RWIN K  &hmr RIGHT_ALT L  &hmr RIGHT_CONTROL SEMI  &kp SQT
+&kp LSHIFT  &blt 1 Z             &kp X        &kp C         &kp V             &kp B            &kp N             &kp M         &kp COMMA    &kp DOT           &slash_bslash            &kp RSHFT
+                                              &kp LEFT_GUI  &kp LEFT_CONTROL  &blt 2 TAB       &blt 3 BACKSPACE  &blt 4 SPACE
+                                                            &kp DELETE        &kp BACKSPACE    &kp RET
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -202,12 +320,21 @@
             label = "POINTER";
             display-name = "Pointer";
             bindings = <
+<<<<<<< HEAD
 &kp F12    &kp F1     &kp F2          &kp F3       &kp F4     &kp F5      &kp F6                   &kp F7               &kp F8          &kp F9         &kp F10         &kp F11
 &trans     &trans     &trans          &mo SNIPING  &mkp MB4   &mkp MB5            &trans           &kp PG_DN            &kp PG_UP       &kp END        &trans          &trans
 &kp RCTRL  &kp LG(A)  &ctrl_cmd_hold  &mkp RCLK    &mkp LCLK  &mkp MCLK           &kp LEFT         &kp DOWN             &kp UP          &kp RIGHT      &kp MINUS       &kp EQUAL
 &kp LSHFT  &trans     &trans          &trans       &trans     &mo SCROLL          &kp RC(LS(TAB))  &hmr RSHIFT LC(TAB)  &hmr RCTRL INS  &hmr RALT INS  &hmr RGUI LBKT  &kp RSHIFT
 &trans     &trans     &trans          &mkp MB3     &mkp MB2
 &mkp MB1   &mkp MB2   &mkp MB1
+=======
+&kp F12    &kp F1            &kp F2        &kp F3       &kp F4      &kp F5        &kp F6    &kp F7     &kp F8    &kp F9         &kp F10            &kp F11
+&trans     &trans            &trans        &mo SNIPING  &mkp MB4    &mkp MB5      &trans    &trans     &trans    &trans         &trans             &trans
+&trans     &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LWIN     &kp LSHIFT  &trans        &trans    &kp RSHFT  &kp RWIN  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
+&kp LSHFT  &trans            &trans        &trans       &trans      &mo SCROLL    &mkp MB1  &mkp MB3   &mkp MB2  &kp LG(LS(S))  &kp LS(LG(T))      &kp RSHFT
+                                           &mkp MB3     &mkp MB2    &mkp MB2      &mkp MB1  &trans
+                                                        &mkp MB1    &mkp MB2      &mkp MB3
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -215,12 +342,21 @@
             label = "LOWER";
             display-name = "Lower";
             bindings = <
+<<<<<<< HEAD
 &kp ESC   &CAC F1  &CAC F2  &CAC F3  &CAC F4  &CAC F5  &CAC F6                     &CAC F7        &CAC F8    &CAC F9  &CAC F10  &trans
 &none     &CA Q    &CA W    &CA E    &CA R    &CA T             &CA Y              &CA U          &CA I      &CA O    &CAC F11  &CAC F12
 &kp CAPS  &CA A    &CA S    &CA D    &CA F    &CA G             &CA H              &CA J          &CA K      &CA L    &CA SEMI  &CA SQT
 &trans    &CA Z    &CA X    &CA C    &CA V    &CSA F1           &kp LS(LG(GRAVE))  &kp LG(GRAVE)  &CA COMMA  &CA DOT  &CA FSLH  &trans
 &trans    &trans   &trans   &trans   &trans
 &trans    &trans   &trans
+=======
+&kp F12   &kp F1  &kp F2          &kp F3          &kp F4           &kp F5        &kp F6           &kp F7             &kp F8           &kp F9           &kp F10          &kp F11
+&trans    &trans  &kp HOME        &kp UP_ARROW    &kp END          &kp INS       &kp KP_N7        &kp KP_N8          &kp KP_N9        &kp HOME         &kp END          &kp RIGHT_ALT
+&kp CAPS  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans        &kp KP_N4        &hmr RSHIFT KP_N5  &hmr RWIN KP_N6  &hmr RALT PG_UP  &hmr RALT PG_DN  &kp RIGHT_CONTROL
+&trans    &trans  &trans          &trans          &trans           &trans        &kp KP_N1        &kp KP_N2          &kp KP_N3        &trans           &trans           &kp RSHIFT
+                                  &trans          &trans           &trans        &trans           &trans
+                                                  &kp RSHIFT       &kp PERIOD    &kp KP_NUMBER_0
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -228,12 +364,21 @@
             label = "RAISE";
             display-name = "Raise";
             bindings = <
+<<<<<<< HEAD
 &kp ESC  &kp F1  &kp F2      &kp F3        &kp F4         &kp F5         &kp F6                &kp F7          &kp F8        &kp F9        &kp F10  &trans
 &trans   &trans  &CAC W      &kp C_VOL_UP  &kp LG(MINUS)  &kp LG(EQUAL)          &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &kp F11  &kp F12
 &trans   &none   &kp C_PREV  &kp C_PP      &kp C_NEXT     &kp LG(N0)             &kp F23       &kp F24         &none         &none         &none    &bootloader
 &trans   &none   &none       &kp C_VOL_DN  &none          &none                  &bt BT_CLR    &bt BT_CLR_ALL  &none         &none         &none    &none
 &trans   &trans  &trans      &trans        &trans
 &trans   &trans  &trans
+=======
+&kp F12     &kp F1  &kp F2  &kp F3        &kp F4         &kp F5           &kp F6        &kp F7          &kp F8        &kp F9        &kp F10  &kp F11
+&kp C_PREV  &trans  &trans  &kp C_VOL_UP  &kp LG(MINUS)  &kp LG(EQUAL)    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &trans   &trans
+&kp C_PP    &none   &trans  &kp C_MUTE    &trans         &kp LG(N0)       &trans        &trans          &trans        &trans        &trans   &bootloader
+&kp C_NEXT  &none   &none   &kp C_VOL_DN  &none          &none            &bt BT_CLR    &bt BT_CLR_ALL  &none         &none         &none    &none
+                            &trans        &trans         &trans           &trans        &trans
+                                          &kp K_LOCK     &trans           &trans
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -241,12 +386,21 @@
             label = "SYMBOLS";
             display-name = "Symbols";
             bindings = <
+<<<<<<< HEAD
 &kp GRAVE  &trans     &trans     &trans     &trans     &trans     &trans             &trans     &trans    &trans    &trans     &trans
 &kp TILDE  &kp SQT    &kp LT     &kp GT     &kp DQT    &kp DOT            &kp COMMA  &kp AMPS   &kp LBKT  &kp RBKT  &kp PRCNT  &trans
 &trans     &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp UNDER          &kp PIPE   &kp COLON  &kp LPAR  &kp RPAR  &kp QMARK  &trans
 &trans     &kp CARET  &kp FSLH   &kp ASTRK  &kp BSLH   &kp HASH           &kp TILDE  &kp DLLR   &kp LBRC  &kp RBRC  &kp AT     &trans
 &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans
+=======
+&kp GRAVE  &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans    &trans    &trans     &trans
+&kp TILDE  &kp SQT    &kp LT     &kp GT     &kp DQT    &kp DOT      &kp COMMA  &kp AMPS   &kp LBKT  &kp RBKT  &kp PRCNT  &pound
+&trans     &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp UNDER    &kp PIPE   &kp COLON  &kp LPAR  &kp RPAR  &kp QMARK  &euro
+&trans     &kp CARET  &kp FSLH   &kp ASTRK  &kp BSLH   &kp HASH     &kp TILDE  &kp DLLR   &kp LBRC  &kp RBRC  &kp AT     &kp DLLR
+                                 &trans     &trans     &trans       &trans     &trans
+                                            &trans     &trans       &trans
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -254,12 +408,21 @@
             label = "SCROLL";
             display-name = "Scroll";
             bindings = <
+<<<<<<< HEAD
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans
+=======
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -267,12 +430,21 @@
             label = "SNIPING";
             display-name = "Sniping";
             bindings = <
+<<<<<<< HEAD
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans
+=======
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
 
@@ -280,12 +452,21 @@
             label = "GAMING";
             display-name = "Gaming";
             bindings = <
+<<<<<<< HEAD
 &kp ESC  &kp N1     &kp N2  &kp N3  &kp N4  &kp N5  &kp N6         &kp N7  &kp N8     &kp N9   &kp N0    &kp DEL
 &kp T    &kp TAB    &kp Q   &kp W   &kp E   &kp R           &kp Y  &kp U   &kp I      &kp O    &kp P     &kp BSLH
 &kp G    &kp LSFT   &kp A   &kp S   &kp D   &kp F           &kp H  &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp B    &kp LCTRL  &kp Z   &kp X   &kp C   &kp V           &kp N  &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSFT
 &trans   &trans     &trans  &trans  &trans
 &trans   &trans     &trans
+=======
+&kp ESC  &kp N1     &kp N2  &kp N3  &kp N4  &kp N5       &kp N6  &kp N7  &kp N8     &kp N9   &kp N0    &kp DEL
+&kp T    &kp TAB    &kp Q   &kp W   &kp E   &kp R        &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BSLH
+&kp G    &kp LSFT   &kp A   &kp S   &kp D   &kp F        &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp B    &kp LCTRL  &kp Z   &kp X   &kp C   &kp V        &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSFT
+                            &trans  &trans  &kp SPACE    &trans  &trans
+                                    &trans  &trans       &trans
+>>>>>>> 91eabac0aa65a32ba4f35771f8ce4c3575b94f9d
             >;
         };
     };
