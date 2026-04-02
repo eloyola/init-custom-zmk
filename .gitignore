@@ -1,6 +1,15 @@
-.west/
-modules/
-zephyr/
-zmk/
-zmk-pmw3610-driver/
-build/
+.DS_Store
+
+# Manual local build artifacts
+artifacts/
+manual_build/west-workspace/
+manual_build/artifacts/
+
+
+# Python
+__pycache__/
+*.pyc
+
+# editors
+.vscode/
+.idea/
