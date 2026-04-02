@@ -5,9 +5,9 @@ on:
   push:               # automatically run on changes to following paths
     paths:
       - "config/*.keymap"
-      - "config/*.dtsi"
+      #- "config/*.dtsi"
       - "keymap_drawer.config.yaml"
-      # - 'boards/*/*/*.keymap'
+      - 'boards/shields/charybdis/charybdis.keymap'
 
 jobs:
   draw:
